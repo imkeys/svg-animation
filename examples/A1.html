@@ -1,23 +1,36 @@
-
 <!--<!DOCTYPE html>-->
 <html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
-    <title>Title</title>
- 
-    <style>
-		h2{ font-size: 18px; }
-        .panel{
-            position: relative; width: 220px; min-height: 200px;
-            float: left; margin-right: 20px; padding: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        svg {  }
-        svg path { stroke: black; fill: none; stroke-width: 2; }
 
-        /*
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=0.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+  <title>Title</title>
+
+  <style>
+    h2 {
+      font-size: 18px;
+    }
+
+    .panel {
+      position: relative;
+      width: 220px;
+      min-height: 200px;
+      float: left;
+      margin-right: 20px;
+      padding: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    svg {}
+
+    svg path {
+      stroke: black;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /*
             animation
                 1 动画效果名称
                 2 动画耗时
@@ -31,50 +44,69 @@
                 5 动画播放次数        n 次   infinite 无限
                 6 是否轮流反向播放    normal 正常   alternate 轮流反向
         */
-        .box{
-           position: relative; width: 200px; height: 200px;
-        }
-        .rect {
-            position: absolute; top: 0; left: 0;
-            width: 10px; height: 10px; background: darkred;
-        }
-        .qxRect{
-            offset-path: path("M00 80 S 40 40, 120 80");
-            offset-distance: 0%;
-            animation: svg-path-animation 5s ease-in-out 0s infinite normal;
-        }
-        .rect1{
-            offset-path: path("M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80");
-            offset-distance: 0%;
-            animation: svg-path-animation 5s ease-in-out 0s infinite normal;
-        }
-        .rect2{
-            offset-path: path("M0 20, L100 20, Z");
-            offset-distance: 0%;
-            animation: svg-path-animation 2s ease-in-out 0s infinite normal;
-        }
-        .rect3{
-            offset-path: path("M20 0, 20 100");
-            offset-distance: 0%;
-            animation: svg-path-animation 2s ease-in-out 0s infinite normal;
-        }
-        .rect4{
-            offset-distance: 0%;
-            animation: svg-path-animation 5s ease-in-out 0s infinite normal;
-        }
-        .rect5{
-            offset-distance: 0%;
-            animation: svg-path-animation 5s ease-in-out 0s infinite normal;
-        }
-        @keyframes svg-path-animation {
-            from {offset-distance: 0%;}
-            to {offset-distance: 100%;}
-        }
+    .box {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
 
-    </style>
+    .rect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      background: darkred;
+    }
+
+    .qxRect {
+      offset-path: path("M00 80 S 40 40, 120 80");
+      offset-distance: 0%;
+      animation: svg-path-animation 5s ease-in-out 0s infinite normal;
+    }
+
+    .rect1 {
+      offset-path: path("M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80");
+      offset-distance: 0%;
+      animation: svg-path-animation 5s ease-in-out 0s infinite normal;
+    }
+
+    .rect2 {
+      offset-path: path("M0 20, L100 20, Z");
+      offset-distance: 0%;
+      animation: svg-path-animation 2s ease-in-out 0s infinite normal;
+    }
+
+    .rect3 {
+      offset-path: path("M20 0, 20 100");
+      offset-distance: 0%;
+      animation: svg-path-animation 2s ease-in-out 0s infinite normal;
+    }
+
+    .rect4 {
+      offset-distance: 0%;
+      animation: svg-path-animation 5s ease-in-out 0s infinite normal;
+    }
+
+    .rect5 {
+      offset-distance: 0%;
+      animation: svg-path-animation 5s ease-in-out 0s infinite normal;
+    }
+
+    @keyframes svg-path-animation {
+      from {
+        offset-distance: 0%;
+      }
+
+      to {
+        offset-distance: 100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div id="app" v-cloak>
+  <div id="app" v-cloak>
     <!--
         d：M 起始点  L 经过点  Z 关闭路径
         <defs></defs>    不显示
@@ -91,122 +123,122 @@
         Z = closepath   关闭路径
     -->
     <div class="panel">
-        <h2>曲线动画：从头开始</h2>
-        <div class="box">
-            <svg width="200" height="200">
-                <path d="M0 80 S 40 40, 120 80" />
-            </svg>
-            <div class="rect qxRect"></div>
-        </div>
+      <h2>曲线动画：从头开始</h2>
+      <div class="box">
+        <svg width="200" height="200">
+          <path d="M0 80 S 40 40, 120 80" />
+        </svg>
+        <div class="rect qxRect"></div>
+      </div>
     </div>
     <div class="panel">
-        <h2>贝塞尔动画：从头开始</h2>
-        <div class="box">
-            <svg width="200" height="200">
-                <path d="M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80" />
-            </svg>
-            <div class="rect rect1"></div>
-        </div>
+      <h2>贝塞尔动画：从头开始</h2>
+      <div class="box">
+        <svg width="200" height="200">
+          <path d="M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80" />
+        </svg>
+        <div class="rect rect1"></div>
+      </div>
     </div>
     <div class="panel">
-        <h2>直线动画：轮流M.L,Z</h2>
-        <div class="box">
-            <svg width="200" height="200">
-                <path d="M0 20, L100 20, Z" />
-            </svg>
-            <div class="rect rect2"></div>
-        </div>
+      <h2>直线动画：轮流M.L,Z</h2>
+      <div class="box">
+        <svg width="200" height="200">
+          <path d="M0 20, L100 20, Z" />
+        </svg>
+        <div class="rect rect2"></div>
+      </div>
     </div>
     <div class="panel">
-        <h2>直线动画：从头开始M</h2>
-        <div class="box">
-            <svg width="200" height="200">
-                <path d="M20 0, 20 100" />
-            </svg>
-            <div class="rect rect3"></div>
-        </div>
+      <h2>直线动画：从头开始M</h2>
+      <div class="box">
+        <svg width="200" height="200">
+          <path d="M20 0, 20 100" />
+        </svg>
+        <div class="rect rect3"></div>
+      </div>
     </div>
     <div class="panel">
-        <h2>圆形动画：从头开始M</h2>
-        <div class="box">
-            <!--<div id="yuanSvg"></div>-->
-            <svg id="yuanSvg" width="200" height="200">
-                <!--<path d="-->
-                <!--M 100 100-->
-                <!--m -100, 0-->
-                <!--a 100,100 0 1,0 200,0-->
-                <!--a 100,100 0 1,0 -200,0"/>-->
-                <path id="yuanPath"></path>
-            </svg>
-            <div class="rect rect4"></div>
-        </div>
+      <h2>圆形动画：从头开始M</h2>
+      <div class="box">
+        <!--<div id="yuanSvg"></div>-->
+        <svg id="yuanSvg" width="200" height="200">
+          <!--<path d="-->
+          <!--M 100 100-->
+          <!--m -100, 0-->
+          <!--a 100,100 0 1,0 200,0-->
+          <!--a 100,100 0 1,0 -200,0"/>-->
+          <path id="yuanPath"></path>
+        </svg>
+        <div class="rect rect4"></div>
+      </div>
     </div>
     <div class="panel">
-        <h2>椭圆动画：从头开始M</h2>
-        <div class="box">
-            <svg width="200" height="200">
-                <!--<path d="M 20,60, a 50 50 ,90 1 1 0 1, z"/>-->
-                <path id="tuoyuanPath"></path>
-            </svg>
-            <div class="rect rect5"></div>
-        </div>
+      <h2>椭圆动画：从头开始M</h2>
+      <div class="box">
+        <svg width="200" height="200">
+          <!--<path d="M 20,60, a 50 50 ,90 1 1 0 1, z"/>-->
+          <path id="tuoyuanPath"></path>
+        </svg>
+        <div class="rect rect5"></div>
+      </div>
     </div>
 
-</div>
+  </div>
 </body>
 <script src="https://www.jq22.com/jquery/jquery-3.3.1.js"></script>
 <script src="https://www.jq22.com/jquery/vue2.6.10.min.js"></script>
 <script>
-    var app = new Vue({
-        el: "#app",
-        //数据
-        data: {
+  var app = new Vue({
+    el: "#app",
+    //数据
+    data: {
 
-        },
-        mounted: function () {
-            /**
-             * 注意：1、直接添加path无效，需要先添加svg，或者直接给path设置d
-             *       2、给css设置动画不要换行
-             */
-            // $('#yuanSvg').append(`<svg width="200" height="200">
-            //         <path d="${d}"/>
-            //     </svg>`);
+    },
+    mounted: function () {
+      /**
+       * 注意：1、直接添加path无效，需要先添加svg，或者直接给path设置d
+       *       2、给css设置动画不要换行
+       */
+      // $('#yuanSvg').append(`<svg width="200" height="200">
+      //         <path d="${d}"/>
+      //     </svg>`);
 
-            /**
-             * 圆
-             * cx,cy,r
-             * x坐标,y坐标,半径
-             */
-            function yuan() {
-                var cx=100, cy=100, r=100;
+      /**
+       * 圆
+       * cx,cy,r
+       * x坐标,y坐标,半径
+       */
+      function yuan() {
+        var cx = 100, cy = 100, r = 100;
 
-                var d = `M ${cx} ${cy}, m -${r}, 0, a ${r},${r} 0 1,0 ${r* 2},0, a ${r},${r} 0 1,0 -${r* 2},0`;
-                $('#yuanPath').attr('d',d);
-                $('.rect4').css({
-                    'offset-path': `path("${d}")`,
-                })
-            }
-            yuan()
+        var d = `M ${cx} ${cy}, m -${r}, 0, a ${r},${r} 0 1,0 ${r * 2},0, a ${r},${r} 0 1,0 -${r * 2},0`;
+        $('#yuanPath').attr('d', d);
+        $('.rect4').css({
+          'offset-path': `path("${d}")`,
+        })
+      }
+      yuan()
 
-            /**
-             * 椭圆
-             * cx,cy,rx,ry
-             * x坐标,y坐标,高,宽
-             */
-            function tuoyuan() {
-                var cx=20, cy=60, w=20, h=70;
+      /**
+       * 椭圆
+       * cx,cy,rx,ry
+       * x坐标,y坐标,高,宽
+       */
+      function tuoyuan() {
+        var cx = 20, cy = 60, w = 20, h = 70;
 
-                var d = `M ${cx},${cy}, a ${w} ${h} ,90 1 1 0 1, z`;
-                $('#tuoyuanPath').attr('d',d);
-                $('.rect5').css({
-                    'offset-path': `path("${d}")`,
-                })
-            }
-            tuoyuan()
+        var d = `M ${cx},${cy}, a ${w} ${h} ,90 1 1 0 1, z`;
+        $('#tuoyuanPath').attr('d', d);
+        $('.rect5').css({
+          'offset-path': `path("${d}")`,
+        })
+      }
+      tuoyuan()
 
-        },
-        methods: {},
-    });
+    },
+    methods: {},
+  });
 </script>
 
 </html>
